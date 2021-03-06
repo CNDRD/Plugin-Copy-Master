@@ -36,6 +36,9 @@ def doTheThings(op, src):
     for destination in os.listdir(ABS_PATH_VOLUMES):
         dest_plugins_path = f'{ABS_PATH_VOLUMES}/{destination}/plugins/'
 
+        if not os.path.exists(dest_plugins_path):
+            continue
+
         if op == 'copy':
             shutil.copy(src, dest_plugins_path)
             count += 1

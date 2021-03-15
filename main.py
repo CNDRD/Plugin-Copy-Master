@@ -39,6 +39,9 @@ def doTheThings(op, src):
         if not os.path.exists(dest_plugins_path):
             continue
 
+        if not os.path.exists(f'{dest_plugins_path}/{src}'):
+            continue
+
         if op == 'copy':
             shutil.copy(src, dest_plugins_path)
             count += 1
